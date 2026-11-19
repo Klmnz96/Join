@@ -1,0 +1,105 @@
+/* Design tokens from the Join Figma file ("Page Components design system").
+   Use only these variables for colors, so the dark mode works later. */
+
+:root {
+  /* Font */
+  --font-family: "Inter", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --line-height: 1.2;
+
+  /* Font sizes (Figma t7 is 12px / 14px, DA rule says min. 16px) */
+  --font-size-body: 16px;
+  --font-size-input: 20px;
+  --font-size-button: 21px;
+  --font-size-title: 61px;
+
+  /* Main colors */
+  --color-main: #2a3647;
+  --color-main-hover: #124658;
+  --color-main-active: #091931;
+  --color-accent: #29abe2;
+  --color-menu: #42526e;
+  --color-menu-text: #cdcdcd;
+  --color-background: #f6f7f8;
+  --color-surface: #ffffff;
+  --color-text: #000000;
+  --color-text-light: #ffffff;
+  --color-text-muted: #a8a8a8;
+  --color-border: #d1d1d1;
+  --color-focus: #124658;
+  --color-icon-light: #e7e7e7;
+  --color-error: #e60026;
+
+  /* Priority */
+  --color-urgent: #ff3d00;
+  --color-medium: #ffa800;
+  --color-low: #7ae229;
+
+  /* Task category labels */
+  --color-user-story: #0038ff;
+  --color-technical-task: #1fd7c1;
+
+  /* Subtask progress bar */
+  --color-progress: #4589ff;
+  --color-progress-background: #f4f4f4;
+
+  /* Contact avatar colors */
+  --avatar-1: #ff7a00;
+  --avatar-2: #ff5eb3;
+  --avatar-3: #6e52ff;
+  --avatar-4: #9327ff;
+  --avatar-5: #00bee8;
+  --avatar-6: #1fd7c1;
+  --avatar-7: #ff745e;
+  --avatar-8: #ffa35e;
+  --avatar-9: #fc71ff;
+  --avatar-10: #ffc701;
+  --avatar-11: #0038ff;
+  --avatar-12: #c3ff2b;
+  --avatar-13: #ffe62b;
+  --avatar-14: #ff4646;
+  --avatar-15: #ffbb2b;
+
+  /* Shadows */
+  --shadow-card: 0 0 10px 3px rgba(0, 0, 0, 0.08);
+  --shadow-button: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --shadow-header: 0 4px 4px rgba(0, 0, 0, 0.1);
+
+  /* Border radius */
+  --radius-label: 8px;
+  --radius-input: 10px;
+  --radius-menu: 20px;
+  --radius-card: 24px;
+  --radius-dialog: 30px;
+  --radius-round: 50%;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-l: 32px;
+  --space-xl: 48px;
+  --space-xxl: 64px;
+
+  /* Layout */
+  --sidebar-width: 232px;
+  --content-max-width: 1440px;
+  --card-width: 252px;
+  --input-width: 422px;
+
+  /* Animation (checklist: 75ms to 125ms on clickable elements) */
+  --transition-fast: 100ms ease-in-out;
+}
+
+/* Dark mode: proposal, not part of the Figma design.*/
+[data-theme="dark"] {
+  --color-background: #1b222d;
+  --color-surface: #2a3647;
+  --color-text: #f6f7f8;
+  --color-text-muted: #a8a8a8;
+  --color-border: #42526e;
+  --color-progress-background: #42526e;
+  --shadow-card: 0 0 10px 3px rgba(0, 0, 0, 0.4);
+}
