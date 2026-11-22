@@ -106,7 +106,7 @@
   display: flex;
   gap: var(--space-m);
   overflow-x: auto;
-  padding-bottom: var(--space-xs);
+  padding-bottom: var(--space-xl);
 }
 
 .board-column {
@@ -289,6 +289,25 @@
   filter: invert(1);
 }
 
+/* Thin scrollbar in Join colors */
+.board-columns,
+.column-list {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+/* Same look for Safari */
+.board-columns::-webkit-scrollbar,
+.column-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.board-columns:-webkit-scrollbar-thumb,
+.column-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 8px;
+}
+
 /* Tablet: columns can scroll sideways inside the board */
 /* Smaller desktop: less padding, so all 4 columns fit longer */
 @media (max-width: 1200px) {
@@ -349,7 +368,7 @@
   .column-list {
     flex-direction: row;
     overflow-x: auto;
-    padding-bottom: var(--space-xs);
+    padding-bottom: var(--space-xl);
   }
 
   .column-list .task-card {
