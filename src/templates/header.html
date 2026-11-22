@@ -1,0 +1,52 @@
+<header class="header">
+  <a href="summary.html" class="header-logo" aria-label="Go to summary">
+    <img src="../../assets/img/logoDark.svg" alt="Join Logo" />
+  </a>
+
+  <p class="header-title">Kanban Project Management Tool</p>
+
+  <div class="header-actions">
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-label="Switch color theme"
+      onclick="toggleTheme()"
+    >
+      <img
+        src="../../assets/icons/darkMode.svg"
+        alt=""
+        class="theme-icon theme-icon-moon icon-adapt"
+      />
+      <img
+        src="../../assets/icons/lightMode.svg"
+        alt=""
+        class="theme-icon theme-icon-sun icon-adapt"
+      />
+    </button>
+
+    <a href="help.html" class="header-help" aria-label="Help">
+      <img src="../../assets/icons/help.svg" alt="" class="icon-adapt" />
+    </a>
+
+    <button
+      class="header-profile"
+      type="button"
+      aria-label="Open user menu"
+      aria-haspopup="true"
+      aria-expanded="false"
+      aria-controls="userMenu"
+      onclick="toggleUserMenu()"
+    >
+      <span id="userInitials">G</span>
+    </button>
+
+    <nav id="userMenu" class="user-menu" aria-label="User menu" hidden>
+      <a href="help.html" class="user-menu-link user-menu-help">Help</a>
+      <a href="legalNotice.html" class="user-menu-link">Legal Notice</a>
+      <a href="privacyPolicy.html" class="user-menu-link">Privacy Policy</a>
+      <button class="user-menu-link" type="button" onclick="logout()">
+        Log out
+      </button>
+    </nav>
+  </div>
+</header>
