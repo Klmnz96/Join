@@ -4,30 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join | Board</title>
-    <link rel="icon" href="../../assets/icons/logoFavicon.svg" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="../../assets/icons/logoFavicon.svg"
+      type="image/svg+xml"
+    />
     <link rel="stylesheet" href="../styles/fonts.css" />
     <link rel="stylesheet" href="../styles/variables.css" />
     <link rel="stylesheet" href="../styles/standard.css" />
+    <link rel="stylesheet" href="../styles/layout.css" />
     <link rel="stylesheet" href="../styles/board.css" />
     <link rel="stylesheet" href="../styles/boardDialog.css" />
+    <script src="../../script/script.js"></script>
   </head>
 
-  <body>
+  <body class="app" onload="initLayout()">
     <!-- Sidebar and header come from the shared templates (built by the team) -->
-    <div id="sidebarContainer"></div>
-    <div id="headerContainer"></div>
+    <div
+      id="sidebarContainer"
+      w3-include-html="../templates/sidebar.html"
+    ></div>
+    <div id="headerContainer" w3-include-html="../templates/header.html"></div>
 
     <main class="board-page">
       <div class="board-head">
         <h1 class="board-title">Board</h1>
 
         <div class="board-actions">
-          <form class="search-box" role="search" onsubmit="return false">
+          <form class="search-box" role="search" onsubmit="return false;">
             <label for="searchInput" class="visually-hidden">Find task</label>
-            <input id="searchInput" class="search-input" type="search" placeholder="Find Task" autocomplete="off" />
+            <input
+              id="searchInput"
+              class="search-input"
+              type="search"
+              placeholder="Find Task"
+              autocomplete="off"
+            />
             <span class="search-divider"></span>
-            <button class="search-button" type="submit" aria-label="Search tasks">
-              <img class="icon-adapt" src="../../assets/icons/search.svg" alt="" />
+            <button
+              class="search-button"
+              type="submit"
+              aria-label="Search tasks"
+            >
+              <img
+                class="icon-adapt"
+                src="../../assets/icons/search.svg"
+                alt=""
+              />
             </button>
           </form>
 
@@ -38,13 +61,19 @@
         </div>
       </div>
 
-      <p id="searchEmptyMessage" class="search-empty" hidden>No results found</p>
+      <p id="searchEmptyMessage" class="search-empty" hidden>
+        No results found
+      </p>
 
       <div class="board-columns">
         <section class="board-column" aria-labelledby="toDoTitle">
           <div class="column-head">
             <h2 id="toDoTitle" class="column-title">To do</h2>
-            <button class="column-add-button icon-adapt" type="button" aria-label="Add task to To do"></button>
+            <button
+              class="column-add-button icon-adapt"
+              type="button"
+              aria-label="Add task to To do"
+            ></button>
           </div>
           <div id="toDo" class="column-list">
             <!-- Example, replaced by renderColumn('toDo') later -->
@@ -55,27 +84,47 @@
         <section class="board-column" aria-labelledby="inProgressTitle">
           <div class="column-head">
             <h2 id="inProgressTitle" class="column-title">In progress</h2>
-            <button class="column-add-button icon-adapt" type="button" aria-label="Add task to In progress"></button>
+            <button
+              class="column-add-button icon-adapt"
+              type="button"
+              aria-label="Add task to In progress"
+            ></button>
           </div>
           <div id="inProgress" class="column-list">
             <!-- Example card for styling, moved to boardTemplates.js later -->
             <article class="task-card" draggable="true" tabindex="0">
               <span class="task-label task-label--user-story">User Story</span>
               <div class="task-card-text">
-                <h3 class="task-card-title">Kochwelt Page &amp; Recipe Recommender</h3>
-                <p class="task-card-description">Build start page with recipe recommendation and a weekly plan.</p>
+                <h3 class="task-card-title">
+                  Kochwelt Page &amp; Recipe Recommender
+                </h3>
+                <p class="task-card-description">
+                  Build start page with recipe recommendation and a weekly plan.
+                </p>
               </div>
               <div class="task-progress">
-                <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 50%"></div>
+                </div>
                 <span class="progress-text">1/2 Subtasks</span>
               </div>
               <div class="task-card-footer">
                 <div class="avatar-group">
-                  <span class="avatar" style="background-color: var(--avatar-1)">AM</span>
-                  <span class="avatar" style="background-color: var(--avatar-6)">EM</span>
-                  <span class="avatar" style="background-color: var(--avatar-4)">MB</span>
+                  <span class="avatar" style="background-color: var(--avatar-1)"
+                    >AM</span
+                  >
+                  <span class="avatar" style="background-color: var(--avatar-6)"
+                    >EM</span
+                  >
+                  <span class="avatar" style="background-color: var(--avatar-4)"
+                    >MB</span
+                  >
                 </div>
-                <img class="task-prio" src="../../assets/icons/prioMedium.svg" alt="Priority medium" />
+                <img
+                  class="task-prio"
+                  src="../../assets/icons/prioMedium.svg"
+                  alt="Priority medium"
+                />
               </div>
             </article>
           </div>
@@ -84,7 +133,11 @@
         <section class="board-column" aria-labelledby="awaitFeedbackTitle">
           <div class="column-head">
             <h2 id="awaitFeedbackTitle" class="column-title">Await feedback</h2>
-            <button class="column-add-button icon-adapt" type="button" aria-label="Add task to Await feedback"></button>
+            <button
+              class="column-add-button icon-adapt"
+              type="button"
+              aria-label="Add task to Await feedback"
+            ></button>
           </div>
           <div id="awaitFeedback" class="column-list"></div>
         </section>
@@ -99,30 +152,56 @@
     </main>
 
     <!-- Task detail overlay -->
-    <dialog id="taskDialog" class="board-dialog task-detail" aria-labelledby="taskDetailTitle">
+    <dialog
+      id="taskDialog"
+      class="board-dialog task-detail"
+      aria-labelledby="taskDetailTitle"
+    >
       <!-- Example content, moved to boardTemplates.js later -->
       <div class="task-detail-head">
         <span class="task-label task-label--technical">Technical Task</span>
-        <button class="dialog-close" type="button" aria-label="Close task details">
+        <button
+          class="dialog-close"
+          type="button"
+          aria-label="Close task details"
+        >
           <img class="icon-adapt" src="../../assets/icons/close.svg" alt="" />
         </button>
       </div>
 
-      <h2 id="taskDetailTitle" class="task-detail-title">CSS Architecture Planning</h2>
-      <p class="task-detail-description">Define CSS naming conventions and structure.</p>
+      <h2 id="taskDetailTitle" class="task-detail-title">
+        CSS Architecture Planning
+      </h2>
+      <p class="task-detail-description">
+        Define CSS naming conventions and structure.
+      </p>
 
       <dl class="task-detail-info">
         <dt>Due date:</dt>
         <dd>02/09/2026</dd>
         <dt>Priority:</dt>
-        <dd class="task-detail-prio">Urgent <img src="../../assets/icons/prioUrgent.svg" alt="" /></dd>
+        <dd class="task-detail-prio">
+          Urgent <img src="../../assets/icons/prioUrgent.svg" alt="" />
+        </dd>
       </dl>
 
       <div class="task-detail-section">
         <h3 class="task-detail-subtitle">Assigned To:</h3>
         <ul class="task-detail-people">
-          <li><span class="avatar avatar--large" style="background-color: var(--avatar-5)">SM</span>Sofia Müller (You)</li>
-          <li><span class="avatar avatar--large" style="background-color: var(--avatar-3)">BZ</span>Benedikt Ziegler</li>
+          <li>
+            <span
+              class="avatar avatar--large"
+              style="background-color: var(--avatar-5)"
+              >SM</span
+            >Sofia Müller (You)
+          </li>
+          <li>
+            <span
+              class="avatar avatar--large"
+              style="background-color: var(--avatar-3)"
+              >BZ</span
+            >Benedikt Ziegler
+          </li>
         </ul>
       </div>
 
@@ -146,17 +225,29 @@
 
       <div class="task-detail-actions">
         <button class="text-button" type="button" aria-label="Delete task">
-          <img class="icon-adapt" src="../../assets/icons/delete.svg" alt="" />Delete
+          <img
+            class="icon-adapt"
+            src="../../assets/icons/delete.svg"
+            alt=""
+          />Delete
         </button>
         <span class="task-detail-divider"></span>
         <button class="text-button" type="button" aria-label="Edit task">
-          <img class="icon-adapt" src="../../assets/icons/edit.svg" alt="" />Edit
+          <img
+            class="icon-adapt"
+            src="../../assets/icons/edit.svg"
+            alt=""
+          />Edit
         </button>
       </div>
     </dialog>
 
     <!-- Add task overlay: the form comes from the shared Add Task template -->
-    <dialog id="addTaskDialog" class="board-dialog add-task-dialog" aria-label="Add task">
+    <dialog
+      id="addTaskDialog"
+      class="board-dialog add-task-dialog"
+      aria-label="Add task"
+    >
       <button class="dialog-close" type="button" aria-label="Close add task">
         <img class="icon-adapt" src="../../assets/icons/close.svg" alt="" />
       </button>
