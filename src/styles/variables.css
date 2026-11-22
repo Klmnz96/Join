@@ -101,5 +101,7 @@
   --color-text-muted: #a8a8a8;
   --color-border: #42526e;
   --color-progress-background: #42526e;
+  --color-icon-light: #2a3647;
+  --color-menu: #cdcdcd;
   --shadow-card: 0 0 10px 3px rgba(0, 0, 0, 0.4);
 }
