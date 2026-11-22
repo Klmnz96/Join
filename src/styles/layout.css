@@ -109,7 +109,13 @@
   align-items: center;
   justify-content: space-between;
   height: 96px;
-  padding: 0 40px 0 var(--space-xxl);
+  /* Bar goes to the edge, its content stops at the content limit (1440px incl. sidebar) */
+  padding: 0
+    max(
+      40px,
+      calc(100% - var(--content-max-width) + var(--sidebar-width) + 40px)
+    )
+    0 var(--space-xxl);
   background-color: var(--color-surface);
   box-shadow: var(--shadow-header);
 }
@@ -165,6 +171,19 @@
 
 .header-profile:hover {
   background-color: var(--color-progress-background);
+}
+
+[data-theme="dark"] .header-profile {
+  border-color: var(--color-accent);
+}
+
+.header-logo .logo-dark,
+[data-theme="dark"] .header-logo .logo-light {
+  display: none;
+}
+
+[data-theme="dark"] .header-logo .logo-dark {
+  display: block;
 }
 
 /* Dark mode toggle: moon in light mode, sun in dark mode */
