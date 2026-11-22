@@ -1,6 +1,7 @@
+/* Content limit: sidebar + content = 1440px like the Figma frame, left aligned */
 .board-page {
   width: 100%;
-  max-width: var(--content-max-width);
+  max-width: calc(var(--content-max-width) - var(--sidebar-width));
   padding: var(--space-xxl);
 }
 
@@ -100,17 +101,21 @@
   color: var(--color-text-muted);
 }
 
+/* Columns shrink a bit on smaller screens, then scroll inside the board */
 .board-columns {
   display: flex;
   gap: var(--space-m);
+  overflow-x: auto;
+  padding-bottom: var(--space-xs);
 }
 
 .board-column {
   display: flex;
   flex-direction: column;
   gap: var(--space-s);
-  width: var(--card-width);
-  flex-shrink: 0;
+  flex: 1 1 0;
+  min-width: 190px;
+  max-width: var(--card-width);
 }
 
 .column-head {
@@ -285,10 +290,10 @@
 }
 
 /* Tablet: columns can scroll sideways inside the board */
+/* Smaller desktop: less padding, so all 4 columns fit longer */
 @media (max-width: 1200px) {
-  .board-columns {
-    overflow-x: auto;
-    padding-bottom: var(--space-xs);
+  .board-page {
+    padding: var(--space-xl) var(--space-l);
   }
 }
 
@@ -302,19 +307,33 @@
     font-size: 47px;
   }
 
+  /* Mobile head like Figma: title and square plus button in one row, search below */
+  .board-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-m) var(--space-s);
+  }
+
   .board-actions {
-    width: 100%;
-    flex-direction: column-reverse;
-    align-items: stretch;
-    gap: var(--space-s);
+    display: contents;
   }
 
   .search-box {
+    grid-column: 1 / -1;
     width: 100%;
   }
 
   .add-task-button {
+    grid-row: 1;
+    grid-column: 2;
     justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+
+  .add-task-button span {
+    display: none;
   }
 
   .board-columns {
@@ -323,7 +342,8 @@
   }
 
   .board-column {
-    width: 100%;
+    min-width: 0;
+    max-width: none;
   }
 
   .column-list {
