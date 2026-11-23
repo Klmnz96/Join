@@ -95,6 +95,15 @@ h2 {
 /* ---------- Task cards ---------- */
 
 /* ------------ Icons ------------- */
+.summary-icon { width: clamp(40px, 4.8vw, 69px); }
+.task-summary:hover .summary-icon-todo circle,
+.task-summary:hover .summary-icon-done circle {
+    fill: var(--color-text-light);
+}
+.task-summary:hover .summary-icon-todo path { fill: var(--color-main); }
+.task-summary:hover .summary-icon-done path { stroke: var(--color-main); }
+
+
 
 
 
