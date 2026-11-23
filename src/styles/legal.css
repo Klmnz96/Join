@@ -1,0 +1,124 @@
+/* Shared styles for help, legal notice and privacy policy */
+.legal-page {
+  width: 100%;
+  max-width: calc(var(--content-max-width) - var(--sidebar-width));
+  padding: var(--space-xxl) var(--space-xxl) var(--space-xl);
+}
+
+.legal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.legal-title {
+  margin-bottom: var(--space-m);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+}
+
+.back-button {
+  display: flex;
+  padding: 4px;
+  border-radius: var(--radius-round);
+  transition: background-color var(--transition-fast);
+}
+
+.back-button:hover {
+  background-color: var(--color-progress-background);
+}
+
+.back-button img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Text not over the full width, easier to read */
+.legal-page section,
+.legal-page > p {
+  max-width: 80ch;
+}
+
+.legal-page section {
+  margin-top: var(--space-m);
+}
+
+.legal-page h2 {
+  margin-bottom: var(--space-s);
+  font-size: 27px;
+  font-weight: var(--font-weight-bold);
+}
+
+.legal-page h3 {
+  margin-top: var(--space-s);
+  font-size: var(--font-size-input);
+  font-weight: var(--font-weight-bold);
+}
+
+.legal-page p,
+.legal-page ul {
+  margin-top: var(--space-xs);
+  line-height: 1.4;
+}
+
+.legal-page ul {
+  padding-left: var(--space-m);
+}
+
+.legal-page ul li {
+  list-style: disc;
+}
+
+.join-name {
+  color: var(--color-accent);
+}
+
+/* Numbered steps: big number left, text right */
+.help-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  margin-top: var(--space-s);
+  list-style: none;
+  counter-reset: step;
+}
+
+.help-steps li {
+  position: relative;
+  padding-left: 56px;
+  counter-increment: step;
+}
+
+.help-steps li::before {
+  content: counter(step) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 27px;
+  font-weight: var(--font-weight-bold);
+}
+
+.help-steps h3 {
+  margin-top: 0;
+}
+
+.legal-closing {
+  margin-top: var(--space-xl);
+  font-size: 27px;
+  font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 800px) {
+  .legal-page {
+    padding: var(--space-m) var(--space-s);
+  }
+
+  .legal-title {
+    font-size: 47px;
+  }
+
+  .help-steps li {
+    padding-left: 40px;
+  }
+}
