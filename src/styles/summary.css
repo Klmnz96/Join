@@ -11,6 +11,7 @@ main {
 .summary-headline {
     display: flex;
     align-items: center;
+    width: max-content;
     margin: 0 0 clamp(24px, 4vh, 50px);
 }
 h1 {
@@ -93,6 +94,56 @@ h2 {
 }
 
 /* ---------- Task cards ---------- */
+.task-summary {
+    background-color: var(--color-surface);
+    display: flex;
+    justify-content: center;
+    color: inherit;
+    text-decoration: none;
+    height: clamp(96px, 19vh, 168px);
+    border-radius: clamp(20px, 2.1vw, 30px);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+    transition: transform 180ms ease;
+}
+.task-summary:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+    background-color: var(--color-main);
+    color: var(--color-text-light);
+}
+.summary-above:first-child:hover { transform-origin: top left; }
+.summary-above:nth-child(2):hover { transform-origin: top right; }
+.summary-middle:hover {
+    transform: scaleY(1.07);
+    transform-origin: center top;
+}
+.summary-below:nth-child(4):hover { transform-origin: left bottom; }
+.summary-below:nth-child(5):hover { transform-origin: center bottom; }
+.summary-below:nth-child(6):hover { transform-origin: right bottom; }
+.task-summary:hover h3,
+.task-summary:hover h4,
+.task-summary:hover .summary-txt {
+    color: var(--color-text-light);
+}
+.summary-above {
+    grid-column: span 3;
+    gap: clamp(8px, 1.25vw, 18px);
+}
+.summary-middle {
+    grid-column: span 6;
+    gap: 18px;
+}
+.summary-below {
+    grid-column: span 2;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+}
+.summary-below h3,
+.summary-below-txt {
+    line-height: 1;
+}
 
 /* ------------ Icons ------------- */
 .summary-icon { width: clamp(40px, 4.8vw, 69px); }
