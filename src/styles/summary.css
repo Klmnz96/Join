@@ -1,4 +1,100 @@
-/* Dark icons stay visible in dark mode */
-[data-theme="dark"] .icon-adapt {
-  filter: invert(1);
+
+body {
+    min-width: 320px;
 }
+
+main {
+    margin: clamp(24px, 6vh, 80px) clamp(16px, 5.2vw, 75px) 32px;
+}
+
+/* ---------- Headline ---------- */
+.summary-headline {
+    display: flex;
+    align-items: center;
+    margin: 0 0 clamp(24px, 4vh, 50px);
+}
+h1 {
+    flex-shrink: 0;
+    font-size: var(--font-size-title);
+}
+.headline-txt {
+    min-width: 0;
+    color: var(--color-text);
+    font-size: clamp(16px, 1.9vw, 27px);
+    align-content: center;
+}
+.seperator {
+    flex-shrink: 0;
+    width: 3px;
+    height: clamp(40px, 4.1vw, 59px);
+    background-color: var(--color-accent);
+    margin: 0 clamp(10px, 1.1vw, 16px);
+    align-self: center;
+}
+
+/* ---------- Layout ---------- */
+.summary-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: clamp(16px, 4vw, 56px);
+}
+section {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: clamp(12px, 3vh, 32px);
+    width: 100%;
+    margin-inline: auto;
+}
+
+/* ---------- Texts ---------- */
+.summary-txt-container {
+    min-width: 0;
+    align-content: center;
+}
+.summary-seperator {
+    width: 2px;
+    height: 65%;
+    background-color: var(--color-border);
+    align-self: center;
+    margin: 0 clamp(8px, 1.65vw, 24px);
+}
+h3 {
+    font-size: clamp(44px, 4.45vw, 64px);
+    text-align: center;
+}
+h4 {
+    font-size: clamp(16px, 1.46vw, 21px);
+    color: var(--color-text);
+    padding-bottom: 13px;
+}
+.deadline { font-size: 16px; }
+.summary-txt {
+    color: var(--color-text);
+    font-size: clamp(16px, 1.4vw, 20px);
+    font-weight: 400;
+}
+.summary-below-txt {
+    width: min(130px, 100%);
+    text-align: center;
+}
+
+/* ---------- Greeting ---------- */
+h2 {
+    font-size: clamp(32px, 3.25vw, 47px);
+    color: var(--color-text);
+    font-weight: 500;
+}
+.name {
+    font-size: clamp(40px, 4.45vw, 64px);
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+/* ---------- Task cards ---------- */
+
+/* ------------ Icons ------------- */
+
+
+
