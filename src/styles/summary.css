@@ -109,7 +109,7 @@ h2 {
 .task-summary:hover {
     cursor: pointer;
     transform: scale(1.04);
-    background-color: var(--color-main);
+    background-color: var(--color-summary-hover);
     color: var(--color-text-light);
 }
 .summary-above:first-child:hover { transform-origin: top left; }
@@ -151,8 +151,8 @@ h2 {
 .task-summary:hover .summary-icon-done circle {
     fill: var(--color-text-light);
 }
-.task-summary:hover .summary-icon-todo path { fill: var(--color-main); }
-.task-summary:hover .summary-icon-done path { stroke: var(--color-main); }
+.task-summary:hover .summary-icon-todo path { fill: var(--color-summary-hover); }
+.task-summary:hover .summary-icon-done path { stroke: var(--color-summary-hover); }
 
 
 

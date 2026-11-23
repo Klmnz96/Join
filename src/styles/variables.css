@@ -19,6 +19,7 @@
   --color-main: #2a3647;
   --color-main-hover: #124658;
   --color-main-active: #091931;
+  --color-summary-hover: var(--color-main);
   --color-accent: #29abe2;
   --color-menu: #42526e;
   --color-menu-text: #cdcdcd;
@@ -97,6 +98,7 @@
 [data-theme="dark"] {
   --color-background: #1b222d;
   --color-surface: #2a3647;
+  --color-summary-hover: #124658;
   --color-text: #f6f7f8;
   --color-text-muted: #a8a8a8;
   --color-border: #42526e;
