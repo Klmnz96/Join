@@ -284,11 +284,6 @@
   width: 20px;
 }
 
-/* Dark icons stay visible in dark mode */
-[data-theme="dark"] .icon-adapt {
-  filter: invert(1);
-}
-
 /* Thin scrollbar in Join colors */
 .board-columns,
 .column-list {
