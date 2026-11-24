@@ -34,65 +34,47 @@
 
 
 
+<div id="overlay-add-contact" class="overlay-backdrop d-none">
+  <div class="overlay">
 
+    <div class="overlay-header">
+      <button class="overlay-close" onclick="closeOverlay()">
+        <img src="/assets/icons/close.svg" alt="Close">
+      </button>
+      <h2 class="overlay-title">Add contact</h2>
+      <p class="overlay-subtitle">Tasks are better with a team!</p>
 
-<div id="overlay-add-contact" class="overlay d-none">
-  ...<div class="overlay-header">
-    <h2 class="overlay-title">Add contact</h2>
-   <span class="overlay-subtitle">Tasks are better with the team</span>
+      <div class="contact-avatar">
+      <img class="avatar-icon" src="/assets/icons/person.svg" alt="Avatar"  >
+      </div>
     </div>
 
-    <div class="contact-avatar" /div>
+    <div class="overlay-content">
+      <form id="add-contact-form" class="contact-form">
 
-    <div>
-         <div class="input-field">
-            <input type="text" id="edit-name" placeholder="Name">
-            <img src="./img/person.svg" alt="">
+        <div class="input-field">
+          <input type="text" id="add-name" placeholder="Name" required>
+          <img src="/assets/icons/person.svg" alt="Name">
         </div>
 
         <div class="input-field">
-            <input type="email" id="edit-email" placeholder="Email">
-            <img src="./img/mail.svg" alt="">
+          <input type="email" id="add-email" placeholder="Email" required>
+          <img src="/assets/icons/mail.svg" alt="Email">
         </div>
 
         <div class="input-field">
-            <input type="tel" id="edit-phone" placeholder="Phone">
-            <img src="./img/call.svg" alt="">
+          <input type="tel" id="add-phone" placeholder="Phone">
+          <img src="/assets/icons/phone.svg" alt="Phone">
         </div>
+
+        <button type="submit" class="btn-primary">Create contact</button>
+      </form>
     </div>
-     
+
+  </div>
 </div>
 
-
-
-<div id="overlay-edit-contact" class="overlay d-none">
-  ...<div class="overlay-header">
-    <h2 class="overlay-title">Edit contact</h2>
-   <span class="overlay-subtitle">Tasks are better with the team</span>
-    </div>
-
-    <div class="contact-avatar"></div>
-
-    <div>
-         <div class="input-field">
-            <input type="text" id="edit-name" placeholder="Name">
-            <img src="./img/person.svg" alt="">
-        </div>
-
-        <div class="input-field">
-            <input type="email" id="edit-email" placeholder="Email">
-            <img src="./img/mail.svg" alt="">
-        </div>
-
-        <div class="input-field">
-            <input type="tel" id="edit-phone" placeholder="Phone">
-            <img src="./img/call.svg" alt="">
-        </div>
-    </div>
-
-  <button id="btn-delete-contact">Delete</button>
-  <button id="btn-save-contact">Save</button>
 </div>
-       
-
-</div>
+</main>
+</body>
+</html>
