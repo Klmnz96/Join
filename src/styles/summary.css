@@ -15,14 +15,11 @@ main {
     margin: 0 0 clamp(24px, 4vh, 50px);
 }
 h1 {
-    flex-shrink: 0;
     font-size: var(--font-size-title);
 }
 .headline-txt {
-    min-width: 0;
     color: var(--color-text);
     font-size: clamp(16px, 1.9vw, 27px);
-    align-content: center;
 }
 .seperator {
     flex-shrink: 0;
@@ -36,9 +33,10 @@ h1 {
 /* ---------- Layout ---------- */
 .summary-container {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    max-width: 1100px;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
     align-items: center;
-    gap: clamp(16px, 4vw, 56px);
+    gap: var(--space-m);
 }
 section {
     display: grid;
@@ -91,6 +89,7 @@ h2 {
     font-weight: 700;
     color: var(--color-accent);
 }
+
 
 /* ---------- Task cards ---------- */
 .task-summary {
@@ -149,6 +148,84 @@ h2 {
 .task-summary:hover .summary-icon-todo path { fill: var(--color-summary-hover); }
 .task-summary:hover .summary-icon-done path { stroke: var(--color-summary-hover); }
 
+/* ---------- Responsive ---------- */
+
+@media (min-width: 941px) and (max-width: 1200px) {
+    .summary-greeting h2 { font-size: clamp(26px, 3vw, 36px); }
+    .summary-greeting .name { font-size: clamp(30px, 3.3vw, 40px); }
+}
+
+@media (max-width: 940px) {
+    .summary-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-s);
+    }
+    .summary-greeting { display: none; }
+    .summary-greeting.summary-greeting-intro {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background-color: var(--color-background);
+        animation: summary-greeting-intro 2.5s ease forwards;
+    }
+    .summary-greeting h2 { font-size: clamp(32px, 6vw, 47px); }
+    .summary-greeting .name { font-size: clamp(42px, 8vw, 64px); }
+}
+
+@keyframes summary-greeting-intro {
+    0%,
+    75% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 800px) {
+    h1 { font-size: clamp(34px, 10vw, 48px); }
+    .headline-txt { font-size: clamp(16px, 4vw, 18px); }
+    .summary-headline { 
+        width:auto;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .seperator {
+        order: 1;
+        width: 90px;
+        height: 3px;
+        margin: 12px 0 0;
+        align-self: flex-start;
+    }
+    .summary-container { 
+        display: flex;
+        justify-content: center;
+    }
+    .task-summary {
+        height: clamp(88px, 16vh, 112px);
+    }
+    .summary-above,
+    .summary-middle {
+        gap: 8px;
+    }
+    .summary-icon { width: clamp(32px, 11vw, 48px); }
+    h3 { font-size: clamp(38px, 12vw, 52px); }
+    h4 {padding-bottom: 8px;}
+    .summary-below { gap: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .summary-greeting.summary-greeting-intro {
+        animation-duration: 1ms;
+        animation-timing-function: steps(1, end);
+    }
+}
 
 
 
