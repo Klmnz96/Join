@@ -85,6 +85,7 @@ function closeUserMenuOnOutsideClick(event) {
  * The login feature can be extend this later (e.g. clear the saved user).
  */
 function logout() {
+  sessionStorage.removeItem("greetingShown");
   window.location.href = "../../index.html";
 }
 
