@@ -161,32 +161,7 @@ h2 {
         gap: var(--space-s);
     }
     .summary-greeting { display: none; }
-    .summary-greeting.summary-greeting-intro {
-        position: fixed;
-        inset: 0;
-        z-index: 20;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        background-color: var(--color-background);
-        animation: summary-greeting-intro 2.5s ease forwards;
-    }
-    .summary-greeting h2 { font-size: clamp(32px, 6vw, 47px); }
-    .summary-greeting .name { font-size: clamp(42px, 8vw, 64px); }
-}
-
-@keyframes summary-greeting-intro {
-    0%,
-    75% {
-        opacity: 1;
-        visibility: visible;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
+   
 
 @media (max-width: 800px) {
     h1 { font-size: clamp(34px, 10vw, 48px); }
@@ -218,6 +193,33 @@ h2 {
     h3 { font-size: clamp(38px, 12vw, 52px); }
     h4 {padding-bottom: 8px;}
     .summary-below { gap: 4px; }
+
+     .summary-greeting.summary-greeting-intro {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background-color: var(--color-background);
+        animation: summary-greeting-intro 2.5s ease forwards;
+    }
+    .summary-greeting h2 { font-size: clamp(32px, 6vw, 47px); }
+    .summary-greeting .name { font-size: clamp(42px, 8vw, 64px); }
+}
+
+@keyframes summary-greeting-intro {
+    0%,
+    75% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 }
 
 @media (prefers-reduced-motion: reduce) {
