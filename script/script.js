@@ -91,6 +91,3 @@ function logout() {
 
 applySavedTheme();
 document.addEventListener("click", closeUserMenuOnOutsideClick);
-
-
-function load
