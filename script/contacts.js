@@ -1,5 +1,6 @@
 /**
- * Loads all contacts from Firebase and renders them into the contact list.
+ * Loads all contacts from Firebase and renders them into the contact list,
+ * sorted alphabetically by name.
  */
 async function renderContacts() {
   const container = document.getElementById("contacts-list-contact");
@@ -16,7 +17,10 @@ async function renderContacts() {
 
     const contacts = Object.entries(data)
       .filter(([, value]) => value !== null)
-      .map(([id, value]) => ({ id, ...value }));
+      .map(([id, value]) => ({ id, ...value }))
+      .sort((a, b) =>
+        (a.name ?? "").localeCompare(b.name ?? "", "de", { sensitivity: "base" })
+      );
 
     contacts.forEach((contact) => {
       const card = document.createElement("div");
