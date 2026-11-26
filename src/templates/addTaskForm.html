@@ -1,0 +1,101 @@
+<form class="task-form" novalidate onsubmit="return false;">
+    <div class="task-form-columns">
+        <div class="task-form-left">
+            <div class="form-field">
+                <label for="taskTitle">Title<span class="required">*</span></label>
+                <input id="taskTitle" class="form-input" type="text" placeholder="Enter a title"
+                    oninput="clearFieldError('taskTitle')" onblur="validateTitle()" />
+                <p id="taskTitleError" class="field-error"></p>
+            </div>
+
+            <div class="form-field">
+                <label for="taskDescription">Description</label>
+                <textarea id="taskDescription" class="form-input form-textarea"
+                    placeholder="Enter a Description"></textarea>
+            </div>
+
+            <div class="form-field">
+                <label for="taskDueDate">Due date<span class="required">*</span></label>
+                <div class="input-icon-wrap">
+                    <input id="taskDueDate" class="form-input" type="text" placeholder="dd/mm/yyyy"
+                        oninput="clearFieldError('taskDueDate')" onblur="validateDueDate()" />
+                    <img class="input-icon icon-adapt" src="../../assets/icons/calendar.svg" alt="" />
+                </div>
+                <p id="taskDueDateError" class="field-error"></p>
+            </div>
+        </div>
+
+        <span class="task-form-divider"></span>
+
+        <div class="task-form-right">
+            <div class="form-field">
+                <span class="form-label">Priority</span>
+                <div class="prio-group">
+                    <button type="button" class="prio-button prio-urgent" data-prio="urgent"
+                        onclick="selectPrio('urgent')">
+                        Urgent <img src="../../assets/icons/prioUrgent.svg" alt="" />
+                    </button>
+                    <button type="button" class="prio-button prio-medium active" data-prio="medium"
+                        onclick="selectPrio('medium')">
+                        Medium <img src="../../assets/icons/prioMedium.svg" alt="" />
+                    </button>
+                    <button type="button" class="prio-button prio-low" data-prio="low" onclick="selectPrio('low')">
+                        Low <img src="../../assets/icons/prioLow.svg" alt="" />
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <span class="form-label">Assigned to</span>
+                <div class="dropdown">
+                    <button type="button" class="form-input dropdown-toggle" onclick="toggleAssignedDropdown()">
+                        <span>Select contacts to assign</span>
+                        <img class="icon-adapt" src="../../assets/icons/arrowDropDown.svg" alt="" />
+                    </button>
+                    <ul id="assignedList" class="dropdown-list" hidden></ul>
+                </div>
+                <div id="assignedAvatars" class="avatar-group"></div>
+            </div>
+
+            <div class="form-field">
+                <span class="form-label">Category<span class="required">*</span></span>
+                <div class="dropdown">
+                    <button type="button" class="form-input dropdown-toggle" onclick="toggleCategoryDropdown()">
+                        <span id="categoryLabel">Select task category</span>
+                        <img class="icon-adapt" src="../../assets/icons/arrowDropDown.svg" alt="" />
+                    </button>
+                    <ul id="categoryList" class="dropdown-list" hidden>
+                        <li class="dropdown-item" onclick="selectCategory('Technical Task')">Technical Task</li>
+                        <li class="dropdown-item" onclick="selectCategory('User Story')">User Story</li>
+                    </ul>
+                </div>
+                <p id="taskCategoryError" class="field-error"></p>
+            </div>
+
+            <div class="form-field">
+                <label for="subtaskInput">Subtasks</label>
+                <div class="subtask-input-wrap">
+                    <input id="subtaskInput" class="form-input" type="text" placeholder="Add new subtask"
+                        autocomplete="off" onkeydown="handleSubtaskKey(event)" />
+                    <button type="button" class="subtask-icon-button" aria-label="Clear subtask"
+                        onclick="clearSubtaskInput()">&times;</button>
+                    <button type="button" class="subtask-icon-button" aria-label="Add subtask"
+                        onclick="addSubtask()">&#10003;</button>
+                </div>
+                <ul id="subtaskList" class="subtask-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="task-form-footer">
+        <p class="required-note"><span class="required">*</span>This field is required</p>
+        <div class="task-form-buttons">
+            <button type="button" class="button-secondary" onclick="clearTaskForm()">
+                Clear <img class="icon-adapt" src="../../assets/icons/close.svg" alt="" />
+            </button>
+            <button type="button" id="createTaskButton" class="button-primary" onclick="createTask()">
+                Create Task <img src="../../assets/icons/check.svg" alt="" />
+            </button>
+        </div>
+    </div>
+</form>
