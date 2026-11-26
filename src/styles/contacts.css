@@ -62,7 +62,15 @@
   margin-left: 8px;
   }
 
-.contact-details
+.contact-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+}
 
 .contact-details-header {
   display: flex;
